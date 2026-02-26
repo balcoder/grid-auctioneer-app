@@ -1,0 +1,15 @@
+@import "base";
+@import "layout";
+@import "components";
+
+body {
+    background-color: $base-color;
+    font-size: 24px;
+}
+#example {
+    padding: 10%;
+
+    .info {
+        margin: 20px;
+    }
+}

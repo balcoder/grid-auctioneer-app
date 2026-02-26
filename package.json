@@ -1,0 +1,41 @@
+{
+  "name": "npm-scripts",
+  "version": "1.1.0",
+  "private": true,
+  "scripts": {
+    "scss:dev": "sass assets/scss/main.scss assets/css/style.css",
+    "js:dev": "node concat-js.js",
+    "scss": "sass assets/scss/main.scss dist/css/style.css",    
+    "concat:js": "mkdirp dist/js && npm run js:dev && concat -o dist/js/main.js assets/main.js",    
+    "cssmin": "cleancss -o dist/css/style.min.css dist/css/style.prefix.css",
+    "prefix:css": "postcss --use autoprefixer -b 'last 10 versions' dist/css/style.css -o dist/css/style.prefix.css",
+    "uglify": "uglifyjs -o dist/js/main.min.js dist/js/main.js",
+    "modify-html-css": "replace-in-file \"css/style.css\" \"css/style.min.css\" dist/index.html",
+    "copy:html": "copyfiles -u 1 \"assets/*.html\" dist ",
+    "build:css": "npm run scss && npm run prefix:css && npm run cssmin",
+    "build:js": "npm run concat:js && npm run uglify",
+    "modify-html-js": "replace-in-file \"./main.js\" \"js/main.min.js\" dist/index.html",
+    "build:img": "node compressImages.js",
+    "build": "npm run build:css && npm run build:js && npm run build:img && npm run copy:html && npm run modify-html-css && npm run modify-html-js",
+    "watch:css": "onchange \"assets/scss/*.scss\" -- npm run scss:dev",
+    "watch:js": "onchange \"assets/js/*.js\" -- npm run js:dev",
+    "devserver": "live-server --open=assets/index.html",
+    "watch": "npm-run-all --parallel devserver watch:*"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.21",
+    "clean-css-cli": "^5.6.3",
+    "concat": "^1.0.3",
+    "copyfiles": "^2.4.1",
+    "glob": "^11.0.3",
+    "mkdirp": "^3.0.1",
+    "npm": "^11.5.2",
+    "npm-run-all": "^4.1.5",
+    "onchange": "^7.1.0",
+    "postcss-cli": "^11.0.1",
+    "replace-in-file": "^8.3.0",
+    "sass": "^1.91.0",
+    "sharp": "^0.34.3",
+    "uglify-js": "^3.19.3"
+  }
+}
