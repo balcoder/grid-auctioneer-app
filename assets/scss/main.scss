@@ -1,15 +1,11 @@
 @import "base";
-@import "layout";
-@import "components";
+@import "typography";
 
-body {
-    background-color: $base-color;
-    font-size: 24px;
-}
-#example {
-    padding: 10%;
-
-    .info {
-        margin: 20px;
-    }
-}
+@import "sidebar";
+@import "header";
+@import "realtors";
+@import "features";
+@import "story";
+@import "homes";
+@import "gallery";
+@import "footer";
