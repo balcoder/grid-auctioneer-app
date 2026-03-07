@@ -1,4 +1,9 @@
 .homes {
   background-color: $color-secondary;
   grid-column: center-start / center-end;
+
+  display: grid;
+  // responsive columns with repeat(autofit, minmax(25rem, 1fr))
+  grid-template-columns: repeat(autofit, minmax(25rem, 1fr));
+  gap: 7rem
 }
