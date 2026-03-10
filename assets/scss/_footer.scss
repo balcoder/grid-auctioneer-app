@@ -1,4 +1,46 @@
 .footer {
   background-color: $color-secondary;
   grid-column: full-start / full-end;
+  padding: 8rem;
+
+
+}
+
+.nav {
+  list-style: none;
+
+  display: grid;
+  // auto-fit to calculate how many column tracks we need and be responsive
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 2rem;
+  align-items: center;
+
+  // style the link state and visited state
+  &__link:link,
+  &__link:visited {
+    font-size: 1.4rem;
+    color: #fff;
+    text-decoration: none;
+    font-family: $font-display;
+    text-transform: uppercase;
+    text-align: center;
+    display: block;
+    padding: 1.5rem;
+    transition: all .3s;
+
+    
+  }
+
+  &__link:hover,
+  &__link:active {
+    background-color: rgba(#fff, .05);
+    transform: translateY(-3px);
+  }
+}
+
+.copyright {
+  font-size: 1.4rem;
+  color: $color-grey-light-2;
+  text-align: center;
+  margin-top: 6rem
 }
