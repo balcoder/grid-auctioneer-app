@@ -10,7 +10,7 @@ You will need to have live-server installed globally
 npm install -g live-server
 ```
 
-Then install all the package dependencies
+Then install all the package dependencies using the node package manager npm
 
 ```
 npm install
